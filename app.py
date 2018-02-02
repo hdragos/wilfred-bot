@@ -5,10 +5,12 @@ import json
 import requests
 from flask import Flask, request
 from messages import MessageHandler
+from converter import PriceConverter
 
 app = Flask(__name__)
 
-messageHandler = MessageHandler()
+priceConverter = PriceConverter()
+messageHandler = MessageHandler(priceConverter)
 
 @app.route('/', methods=['GET'])
 def verify():
