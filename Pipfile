@@ -13,7 +13,8 @@ requests = "*"
 "jinja2" = "*"
 gunicorn = "*"
 click = "*"
-
+wsgiref = "*"
+itsdangerous = "*"
 
 [dev-packages]
 
