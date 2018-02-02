@@ -60,7 +60,7 @@ def webhook():
     
         return "ok", 200
     except:
-        pass  
+        return "ok", 200 
 
 
 def send_message(recipient_id, message_text):
@@ -85,7 +85,8 @@ def send_message(recipient_id, message_text):
     if r.status_code != 200:
         log(r.status_code)
         log(r.text)
-
+    
+    return "Text Sent"
 
 def log(message):  # simple wrapper for logging to stdout on heroku
     print(message)
