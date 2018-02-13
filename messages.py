@@ -2,7 +2,7 @@ import json
 import requests
 from converter import convert_one_unit
 
-def process_message(self, messageString):
+def process_message(messageString):
     messageWords = list(messageString.strip().split())
     
     if len(messageWords) == 2:

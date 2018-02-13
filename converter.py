@@ -1,7 +1,7 @@
 import json
 import requests
 
-def convert_one_unit(self, base_currency, result_currency = "USD"):
+def convert_one_unit(base_currency, result_currency = "USD"):
     """
         Gets the value of 1 unit of base_currency converted to result_currency 
     """
