@@ -17,5 +17,5 @@ def process_message(self, messageString):
         else:
             return "Sorry, I did not get that."
     
-    else:
-        return "Sorry, I did not get that."
+    
+    return "Sorry, I did not get that."
