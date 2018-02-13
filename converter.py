@@ -31,4 +31,3 @@ class PriceConverter():
             
         return data[result_currency]
 
-pc = PriceConverter()

@@ -4,13 +4,10 @@ import json
 
 import requests
 from flask import Flask, request
-from messages import MessageHandler
-from converter import PriceConverter
+from messages import process_message 
 
 app = Flask(__name__)
 
-priceConverter = PriceConverter()
-messageHandler = MessageHandler(priceConverter)
 
 @app.route('/', methods=['GET'])
 def verify():
@@ -44,7 +41,7 @@ def webhook():
                         try: 
                             message_text = messaging_event["message"]["text"]  # the message's text
                 
-                            reply=messageHandler.process_message(message_text)
+                            reply=process_message(message_text)
                             send_message(sender_id, str(reply))
                         except:
                             send_message(sender_id,str("Sorry! I didn't get that."))    
