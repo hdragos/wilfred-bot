@@ -19,14 +19,10 @@ def process_message(messageString):
     if messageWords[0].strip().upper() == "CONVERT":
         if len(messageWords) == 2:
             return convert_one_unit(messageWords[1])
-        else:
-            return "Sorry, I did not get that."
             
         if len(messageWords) == 4:
             if messageWords[2].strip().upper() == "TO":
                 return convert_one_unit(messageWords[1], messageWords[3])
-            else:
-                return "Sorry, I did not get that."
     #----------------------------------#
     
     return "Sorry, I did not get that."
