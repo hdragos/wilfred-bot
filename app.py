@@ -18,7 +18,7 @@ def verify():
             return "Verification token mismatch", 403
         return request.args["hub.challenge"], 200
 
-    return "Hello world", 200
+    return "ok", 200
 
 
 @app.route('/', methods=['POST'])
@@ -39,12 +39,12 @@ def webhook():
                         sender_id = messaging_event["sender"]["id"]        # the facebook ID of the person sending you the message
                         recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                         try: 
-                            message_text = messaging_event["message"]["text"]  # the message's text
+                            message_text = str(messaging_event["message"]["text"])  # the message's text
                 
                             reply=process_message(message_text)
                             send_message(sender_id, str(reply))
                         except:
-                            send_message(sender_id,str("Sorry! I didn't get that."))    
+                            send_message(sender_id,str("Sorry, I did not get that."))    
                     
                     if messaging_event.get("delivery"):  # delivery confirmation
                         pass
