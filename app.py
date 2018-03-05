@@ -4,7 +4,7 @@ import json
 
 import requests
 from flask import Flask, request
-from messages.message_handler import handle_message  
+from message_handler import handle_message  
 
 app = Flask(__name__)
 
