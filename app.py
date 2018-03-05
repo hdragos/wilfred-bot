@@ -4,7 +4,7 @@ import json
 
 import requests
 from flask import Flask, request
-from messages import process_message 
+from messages.message_handler import handle_message  
 
 app = Flask(__name__)
 
@@ -41,7 +41,7 @@ def webhook():
                         try: 
                             message_text = str(messaging_event["message"]["text"])  # the message's text
                 
-                            reply=process_message(message_text)
+                            reply=handle_message(message_text)
                             send_message(sender_id, str(reply))
                         except:
                             send_message(sender_id,str("Sorry, I did not get that."))    
