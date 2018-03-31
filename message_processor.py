@@ -51,4 +51,22 @@ def simplify_message(messageString):
                     simplifiedMessage.append(messageWords[commandIndex+3]) 
     #---------------------------------#
     
+    #----------Weather pattern--------#
+    if simplifiedMessage[0].strip().lower() == "weather":
+        #matchObj = re.match(r'([a-z]*)[, ]*([a-z]*)', messageString)
+        matchObj = re.search(r'weather[, ]*(for)?[, ]*(\w+)[, ]*(\w+)', messageString)
+        if matchObj:
+            if len(matchObj.groups(0)) == 3:
+                weatherCity = matchObj.group(2)
+                weatherCountry = matchObj.group(3)
+            else:
+                weatherCity = matchObj.group(1)
+                weatherCountry = matchObj.group(2)
+            
+            simplifiedMessage.append(weatherCity)
+            simplifiedMessage.append(weatherCountry)
+        else:
+            return errorMessage
+    #---------------------------------#
+
     return simplifiedMessage

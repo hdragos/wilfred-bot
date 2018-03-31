@@ -24,5 +24,18 @@ class TestCaseSimplifyMessage(unittest.TestCase):
         
         self.assertEqual(actualWordList, expectedWordList, "Test 2: Failed. Invalid help simplification")
 
+    def testWeather(self):
+        inputString = "Hello, I would need to know the weather for Bucharest, Romania."
+        actualWordList = simplify_message(inputString)
+        expectedWordList = ["weather", "bucharest", "romania"]
+        
+        self.assertEqual(actualWordList, expectedWordList, "Test 3: Failed. Invalid weather simplification")
+        
+        inputString = "Weather bucharest romania"
+        actualWordList = simplify_message(inputString)
+        expectedWordList = ["weather", "bucharest", "romania"]
+        
+        self.assertEqual(actualWordList, expectedWordList, "Test 4: Failed. Invalid weather simplification")
+        
 if __name__ == '__main__':
     unittest.main()
