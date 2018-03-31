@@ -38,20 +38,6 @@ def simplify_message(messageString):
     #---------------------------------#
     
     #----------Convert pattern--------#
-    '''
-    if simplifiedMessage[0].strip().lower() == "convert":
-        if commandIndex == len(messageWords):
-            return errorMessage
-        simplifiedMessage.append(messageWords[commandIndex+1])
-        if commandIndex+2 < len(messageWords):
-            if messageWords[commandIndex+2].strip().lower() == "to":
-                simplifiedMessage.append("to")
-                if commandIndex+3 >= len(messageWords):
-                    return errorMessage
-                else:
-                    simplifiedMessage.append(messageWords[commandIndex+3]) 
-    '''
-    
     if simplifiedMessage[0].strip().lower() == "convert":
         matchObj = re.search(r'convert[, ]*(\w+)[, ]*(to)?[, ]*(\w+)?', messageString)
         if matchObj:
@@ -68,7 +54,6 @@ def simplify_message(messageString):
                 simplifiedMessage.append(resultCurrency)
         else:
             return errorMessage
-   
     #---------------------------------#
     
     #----------Weather pattern--------#
