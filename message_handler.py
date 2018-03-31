@@ -31,9 +31,8 @@ def handle_message(messageString):
         if len(messageWords) == 2:
             return convert_one_unit(messageWords[1])
             
-        if len(messageWords) == 4:
-            if messageWords[2].strip().lower() == "to":
-                return convert_one_unit(messageWords[1], messageWords[3])
+        if len(messageWords) == 3:
+            return convert_one_unit(messageWords[1], messageWords[2])
     #----------------------------------#
     
     #---------Weather commands---------#
