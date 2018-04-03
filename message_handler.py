@@ -3,6 +3,7 @@ import requests
 import re 
 from converter import convert_one_unit
 from message_processor import simplify_message
+from weather import get_weather_for_city
 
 def handle_message(messageString):
     """
@@ -11,20 +12,19 @@ def handle_message(messageString):
     
     messageWords = simplify_message(messageString)
     
-    '''
-    Alternatively, the previous line can be replaced with the following,
-    but this comes with 
-       
-     messageWords = list(messageString.strip().split())
-    '''
-    
     #-----------Help commands----------#
-    helpString = "Available commands:\n >Help [x]\n >Convert [x] to [y]"
+    
+    '''
+    More commands can be added here over time
+    '''
+    helpString = "Available commands:\n"
+    helpString += " >Help\n"
+    helpString += " >Convert <base_currency> [to] [<result_currency>]\n"
+    helpString += " >Weather [for] <city> <country>\n"
     
     if messageWords[0].strip().lower() == "help":
         return helpString
     #----------------------------------#
-    
     
     #---------Convert commands---------#
     if messageWords[0].strip().lower() == "convert":
@@ -37,7 +37,7 @@ def handle_message(messageString):
     
     #---------Weather commands---------#
     if messageWords[0].strip().lower() == "weather":
-        return "It's raining somewhere."
+        return get_weather_for_city(messageWords[1], messageWords[2])
     #----------------------------------#
     
     return "Sorry, I did not get that."

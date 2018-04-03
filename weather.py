@@ -8,3 +8,8 @@ def get_weather_for_city(cityName, countryName):
     weatherRequest = requests.get(wundergroundURL)
     weatherData = weatherRequest.text
     weatherSoup = BeautifulSoup(weatherData)
+    
+    '''
+    TO DO: Return compressed data, not just the link.
+    '''
+    return wundergroundURL
