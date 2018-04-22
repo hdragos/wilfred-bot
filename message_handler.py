@@ -7,17 +7,19 @@ from weather import get_weather_for_city
 
 def handle_message(messageString):
     """
-    Returns a text message based on the messageString
+        Given a message, handles the user request from the message and returns the a response
+        Input: the text message from the user (string)
+        Output: the response text message for the user (string)
     """
     
     messageWords = simplify_message(messageString)
     
     #-----------Help commands----------#
-    
     '''
     More commands can be added here over time
     '''
-    helpString = "Available commands:\n"
+    helpString = "Hello!"
+    helpString += "Available commands:\n"
     helpString += " >Help\n"
     helpString += " >Convert <base_currency> [to] [<result_currency>]\n"
     helpString += " >Weather [for] <city> <country>\n"

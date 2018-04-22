@@ -1,15 +1,22 @@
-import json
-import requests 
 import re
 
 def simplify_message(messageString):
     """
-    Gets as a parameter a message string
-    And returns a simplified expression of that message string
-    Ex: input: "Hello! Can you convert BTC to EUR for me?"
-        output: "convert btc to eur"
+        Gets as a parameter a message string
+        And returns a simplified expression of that message string
+        Input: a message (string)
+        Output: a list containing all the important words (strings) from the given message
+        
+        Ex: input: "Hello! Can you convert BTC to EUR for me?"
+            output: "convert btc eur"
     """
-    keyWords = ["weather", "convert", "help"]
+    
+    
+    keyWords = [] #append is used so that new keywords can be easily added
+    keyWords.append("weather")
+    keyWords.append("convert")
+    keyWords.append("help")
+
     errorMessage = ["error"]
     simplifiedMessage = []
     
@@ -29,9 +36,7 @@ def simplify_message(messageString):
     '''
     if len(simplifiedMessage) is not 1:
         return errorMessage
-    
-    commandIndex = messageWords.index(simplifiedMessage[0])
-    
+        
     #-----------Help pattern----------#
     if simplifiedMessage[0].strip().lower() == "help":
         return simplifiedMessage

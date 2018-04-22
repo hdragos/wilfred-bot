@@ -1,9 +1,11 @@
-import json
 import requests
 
 def convert_one_unit(base_currency, result_currency = "USD"):
     """
-        Gets the value of 1 unit of base_currency converted to result_currency 
+        Gets the value of 1 unit of base_currency converted to result_currency
+        Input: base currency (string) and result currency (string)
+               the standard result currency is USD
+        Output: the converted value from base currency to result currency
     """
     
     #CryptoCompare API accepts only uppercase strings for currency names
